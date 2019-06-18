@@ -1,9 +1,11 @@
+var LiveForm = require("./modules/LiveForm.js");
 var Grass = require("./modules/Grass.js");
 var GrassEater = require("./modules/GrassEater.js");
-var Predator = require("/.modules/Predator.js");
-var Joker = require("/.modules/Joker.js");
-var Zeus = require("/.modules/Zeus.js");
-let random = require("./modules/random.js");
+var Predator = require("./modules/Predator.js");
+var Joker = require("./modules/Joker.js");
+var Zeus = require("./modules/Zeus.js");
+var random = require("./modules/random.js")
+
 
 var zeusArr = [];
 var jokerArr = [];
@@ -90,9 +92,33 @@ function creatingObjects() {
         }
     }
 }
-    creatingObjects();
+
+
+ var season = 0;
+var weatheris = "Winter";
+
+function ChangeWeather()
+{
+    season++;
+    if(season <= 5)
+    {
+     weatheris = "Winter";
+    }
+    else if(season <= 10)
+    {
+        weatheris = "Summer";
+    }
+    else{
+        season = 0;
+    }
+}
+
+
+
 
 function game() {
+    creatingObjects();
+    ChangeWeather();
     if (grassArr[0] !== undefined) {
         for (var i in grassArr) {
             grassArr[i].mul();
@@ -134,6 +160,7 @@ function game() {
     //! Object to send
         let sendData = {
             matrix: matrix,
+            weather: weatheris,
             grassCounter: grassHashiv,
             grassEaterCounter: grassEaterHashiv,
             predatorCounter: predatorHashiv,

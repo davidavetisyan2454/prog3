@@ -1,5 +1,5 @@
 var LiveForm = require("./LiveForm");
-var random = require("../random");
+var random = require("./random");
 
 module.exports = class Zeus extends LiveForm {
 	constructor(x, y){

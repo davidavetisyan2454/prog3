@@ -19,6 +19,7 @@ function setup() {
     function drawCreatures(data) {
 
         matrix = data.matrix;
+        weather = data.weather;
         grassCountElement.innerText = data.grassCounter;
         grassEaterCountElement.innerText = data.grassEaterCounter;
         predatorCountElement.innerText = data.predatorCounter;
@@ -35,6 +36,12 @@ function setup() {
         for (var i = 0; i < matrix.length; i++) {
             for (var j = 0; j < matrix[i].length; j++) {
                 if (matrix[i][j] == 1) {
+                    if(season = "Winter"){
+                        fill("white");
+                    }
+                    else if(season == "Summer"){
+                        fill("orange");
+                    }
                     fill("green");
                     rect(j * side, i * side, side, side);
                 } else if (matrix[i][j] == 2) {
